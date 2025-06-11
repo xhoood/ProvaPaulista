@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>IA Stealth Embutida</title>
+  <style>
+    #ia-stealth-iframe {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      width: 400px;
+      height: 300px;
+      border: 2px solid #555;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      border-radius: 8px;
+      background-color: white;
+      display: none;
+      z-index: 999999;
+    }
+    #btnClose {
+      position: fixed;
+      bottom: 315px;
+      right: 10px;
+      background: #f44336;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+      font-size: 20px;
+      line-height: 28px;
+      padding: 0;
+      display: none;
+      z-index: 1000000;
+    }
+    #btnToggle {
+      position: fixed;
+      bottom: 10px;
+      right: 420px;
+      padding: 8px 16px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 6px;
+      border: 1px solid #555;
+      background-color: #eee;
+      box-shadow: 0 0 5px rgba(0,0,0,0.2);
+      z-index: 1000000;
+    }
+  </style>
+</head>
+<body>
+  <button id="btnToggle">Abrir IA Stealth</button>
+  <iframe id="ia-stealth-iframe" src="https://www.blackbox.ai"></iframe>
+  <button id="btnClose" title="Fechar IA stealth">×</button>
+
+  <script>
+    const iframe = document.getElementById('ia-stealth-iframe');
+    const btnClose = document.getElementById('btnClose');
+    const btnToggle = document.getElementById('btnToggle');
+
+    btnToggle.onclick = () => {
+      if (iframe.style.display === 'none' || iframe.style.display === '') {
+        iframe.style.display = 'block';
+        btnClose.style.display = 'block';
+        btnToggle.textContent = 'Fechar IA Stealth';
+      } else {
+        iframe.style.display = 'none';
+        btnClose.style.display = 'none';
+        btnToggle.textContent = 'Abrir IA Stealth';
+      }
+    };
+
+    btnClose.onclick = () => {
+      iframe.style.display = 'none';
+      btnClose.style.display = 'none';
+      btnToggle.textContent = 'Abrir IA Stealth';
+    };
+  </script>
+</body>
+</html>
